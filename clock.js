@@ -40,25 +40,6 @@ function drawFace(ctx, radius) {
   ctx.fill();
 }
 
-function drawNumbers(ctx, radius) {
-  var ang;
-  var num;
-  ctx.font = radius * 0.15 + "px arial"; //set font at 15% of radius
-  ctx.textBaseline = "middle"; //set text alignment to middle
-  ctx.textAlign = "center"; //set text alignment to center
-  for (num = 1; num < 13; num++) {
-    //calculate the print position for each number
-    ang = (num * Math.PI) / 6;
-    ctx.rotate(ang);
-    ctx.translate(0, -radius * 0.85);
-    ctx.rotate(-ang);
-    ctx.fillText(num.toString(), 0, 0);
-    ctx.rotate(ang);
-    ctx.translate(0, radius * 0.85);
-    ctx.rotate(-ang);
-  }
-}
-
 function drawTime(ctx, radius) {
   var now = new Date();
   var hour = now.getHours();
@@ -83,6 +64,25 @@ function drawTime(ctx, radius) {
   second = (second * Math.PI) / 30;
   //make second hand 90% of canvas's radius
   drawHand(ctx, second, radius * 0.9, radius * 0.02);
+}
+
+function drawNumbers(ctx, radius) {
+  var ang;
+  var num;
+  ctx.font = radius * 0.15 + "px arial"; //set font at 15% of radius
+  ctx.textBaseline = "middle"; //set text alignment to middle
+  ctx.textAlign = "center"; //set text alignment to center
+  for (num = 1; num < 13; num++) {
+    //calculate the print position for each number
+    ang = (num * Math.PI) / 6;
+    ctx.rotate(ang);
+    ctx.translate(0, -radius * 0.85);
+    ctx.rotate(-ang);
+    ctx.fillText(num.toString(), 0, 0);
+    ctx.rotate(ang);
+    ctx.translate(0, radius * 0.85);
+    ctx.rotate(-ang);
+  }
 }
 
 function drawHand(ctx, pos, length, width) {

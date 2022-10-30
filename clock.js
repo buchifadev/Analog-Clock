@@ -90,8 +90,8 @@ function drawClockFace(ctx, radius) {
 function drawHand(ctx, pos, length, width) {
   ctx.beginPath();
   ctx.lineWidth = width;
-  ctx.lineCap = "round";
-  ctx.moveTo(0, 0);
+  ctx.lineCap = "flat";
+  ctx.moveTo(90, 180);
   ctx.rotate(pos);
   ctx.lineTo(0, -length);
   ctx.stroke();
